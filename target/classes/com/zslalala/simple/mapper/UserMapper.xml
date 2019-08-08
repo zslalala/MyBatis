@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zslalala.simple.mapper.UserMapper">
+	<resultMap type="com.zslalala.simple.model.User" id="userMap">
+		<id property="userID" column="USER_ID"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="keyWord" column="KEYWORD"/>
+		<result property="email" column="EMAIL"/>
+		<result property="userInfo" column="DESCRIBE" jdbcType="BLOB"/>
+		<result property="icon" column="ICON"/>
+		<result property="date" column="DATE" jdbcType="TIMESTAMP"/>
+	</resultMap>
+	
+	<select id="selectById" resultMap="userMap">
+		SELECT * FROM USER WHERE USER_ID = #{id}
+	</select>
+	
+	<select id="selectAll" resultMap="userMap">
+		SELECT * FROM USER
+	</select>
+</mapper>
